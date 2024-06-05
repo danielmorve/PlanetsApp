@@ -1,4 +1,4 @@
-package com.example.planetsapp.models
+package com.example.planetsapp.domain.models
 
 data class Planets(
     val __v: Int,
@@ -16,11 +16,6 @@ data class Planets(
     val type: String
 ){
 
-    val computedMass get() = "$mass kg"
-    val computedMoons get() = "$moons"
-    val computedRotation get() = "$rotation hours"
-    val computedTraslation get() = "$traslation days"
-    val computedType get() = "$type"
     companion object{
         val planetsList = List(10){
             Planets(

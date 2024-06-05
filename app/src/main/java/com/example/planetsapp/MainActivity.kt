@@ -15,10 +15,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.planetsapp.screens.DetailScreen
-import com.example.planetsapp.screens.HomeScreen
-import com.example.planetsapp.ui.theme.PlanetsAppTheme
+import com.example.planetsapp.presentation.screens.DetailScreen
+import com.example.planetsapp.presentation.screens.HomeScreen
+import com.example.planetsapp.presentation.theme.PlanetsAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

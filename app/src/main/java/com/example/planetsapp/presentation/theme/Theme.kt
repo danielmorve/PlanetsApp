@@ -1,4 +1,4 @@
-package com.example.planetsapp.ui.theme
+package com.example.planetsapp.presentation.theme
 
 import android.app.Activity
 import android.os.Build
