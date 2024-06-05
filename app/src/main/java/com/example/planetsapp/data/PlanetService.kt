@@ -8,6 +8,6 @@ interface PlanetService {
     @GET("planets")
     suspend fun getPlanets(): List<Planets>
 
-    @GET("planets/{_id}")
-    suspend fun getPlanetById(@Path("_id") _id: String): Planets
+    @GET("planets/{id}")
+    suspend fun getPlanetById(@Path("id") id: String): Planets
 }

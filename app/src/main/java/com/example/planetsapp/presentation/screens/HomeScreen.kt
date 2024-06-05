@@ -4,10 +4,12 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -18,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
@@ -88,22 +91,32 @@ fun HomeScreen(
                                 .padding(5.dp),
                             elevation = CardDefaults.cardElevation(10.dp)
                         ) {
-                            Column {
+                            Column (
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .align(Alignment.CenterHorizontally),
+                            ) {
                                 AsyncImage(
                                     model = it.image,
                                     contentDescription = null,
                                     placeholder = painterResource(id = R.drawable.ic_launcher_background),
+                                    contentScale = ContentScale.Crop,
                                     modifier = Modifier
                                         .fillMaxWidth()
+                                        .weight(4f)
+                                        .align(Alignment.CenterHorizontally)
                                 )
 
                                 Text(
                                     it.name,
                                     modifier = Modifier
-                                        .align(Alignment.CenterHorizontally),
+                                        .align(Alignment.CenterHorizontally)
+                                        .weight(1f)
+                                        .padding(top = 5.dp)
+                                        ,
                                     style = TextStyle(
                                         fontFamily = FontFamily.Monospace,
-                                        fontSize = 17.sp,
+                                        fontSize = 20.sp,
                                     )
                                 )
                             }

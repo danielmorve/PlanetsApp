@@ -1,7 +1,6 @@
 package com.example.planetsapp.domain.models
 
 data class Planets(
-    val __v: Int,
     val _id: String,
     val description: String,
     val diameter: String,
@@ -13,8 +12,9 @@ data class Planets(
     val name: String,
     val rotation: String,
     val traslation: String,
-    val type: String
-){
+    val type: String,
+    val __v: Int
+    ){
 
     companion object{
         val planetsList = List(10){

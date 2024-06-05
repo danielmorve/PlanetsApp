@@ -34,12 +34,13 @@ class PlanetDetailViewModel @Inject constructor(
                 is ApiResult.Loading -> {
                     _planetState.value = PlanetState(isLoading = true)
                 }
+                is ApiResult.Success -> {
+                    _planetState.value = PlanetState(planet = result.data!!, isLoading = false)
+                }
                 is ApiResult.Error -> {
                     _planetState.value = PlanetState(errorMessage = result.message, isLoading = false)
                 }
-                is ApiResult.Success -> {
-                    _planetState.value = result.data?.let { PlanetState(planet = it, isLoading = false) }!!
-                }
+
 
             }
         }.launchIn(viewModelScope)

@@ -36,7 +36,6 @@ import com.example.planetsapp.presentation.viewmodels.PlanetDetailViewModel
 @Composable
 fun DetailScreen(planetId:String,
                  planetDetailViewModel: PlanetDetailViewModel = hiltViewModel()) {
-    val planet = Planets.planetsList.first { it._id == planetId }
     val state = planetDetailViewModel.planetState.value
 
     if (state.isLoading) {
@@ -51,7 +50,6 @@ fun DetailScreen(planetId:String,
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(10.dp)
         ) {
             AsyncImage(
                 model = state.planet.image,
@@ -59,13 +57,12 @@ fun DetailScreen(planetId:String,
                 placeholder = painterResource(id = R.drawable.ic_launcher_background),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(370.dp)
             )
             Text(
                 state.planet.name,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .padding(bottom = 10.dp),
+                    .padding(10.dp),
                 style = TextStyle(
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold,
@@ -78,7 +75,7 @@ fun DetailScreen(planetId:String,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .fillMaxWidth()
-                    .padding(top = 10.dp),
+                    .padding(10.dp),
                 style = TextStyle(
                     color = Color.DarkGray,
                     fontSize = 16.sp,
@@ -90,7 +87,7 @@ fun DetailScreen(planetId:String,
                 text = "Caracteristicas",
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .padding(top = 10.dp),
+                    .padding(10.dp),
                 style = TextStyle(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
@@ -100,7 +97,7 @@ fun DetailScreen(planetId:String,
             Row {
                 Column(
                     modifier = Modifier
-                        .padding(top = 10.dp, end = 10.dp)
+                        .padding(top = 10.dp, start = 10.dp, end = 10.dp)
                         .weight(0.5f)
                 ) {
                     Text(text = "Diametro: ${state.planet.diameter}")
